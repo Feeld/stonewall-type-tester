@@ -6,6 +6,7 @@
   const textInput = document.querySelector('#font-input');
   const downloadLink = document.querySelector('#download-link')
   const canvasContainer = document.querySelector('#canvasContainer');
+  const viewerContainer = document.querySelector('.viewer');
 
   slider.addEventListener('input', () => {
     textInput.style['font-size'] = slider.value + 'px'
@@ -47,6 +48,7 @@
     ctx.font = `${desiredFontSize}px Stonewall`
     ctx.textBaseline = 'bottom'
     ctx.textAlign = 'center'
+
     const lines = getLines(ctx, textInput.innerText, canvas.width);
 
     let step = 16;
@@ -68,13 +70,17 @@
     return step + 16;
   }
 
+  const hiddenCanvas = document.createElement('canvas');
+
+  viewerContainer.appendChild(hiddenCanvas);
 
   function download() {
 
     const canvasHeight = draw();
-    const hiddenCanvas = document.createElement('canvas');
     hiddenCanvas.height = canvasHeight;
     hiddenCanvas.width = canvas.width;
+
+
 
     var ctx = hiddenCanvas.getContext('2d');
     ctx.fill = '#fff';

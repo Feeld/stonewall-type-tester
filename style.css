@@ -155,3 +155,13 @@
         background: #000;
         height: 2px;
       }
+      
+      #download-link {
+          /* reset button to look like a link */
+          padding: 0;
+          border: none;
+          font: inherit;
+          color: inherit;
+          background-color: transparent;
+          cursor: pointer;
+      }

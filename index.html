@@ -17,7 +17,21 @@
     <div class="viewer2"></div>
     <div class="wrapper">
       <div class="controls top">
-        <div>
+        <div class="colorPicker">
+          <div class="colors foreground">
+            <label for="fg">FG</label>
+            <div class="fg color black selected" id="fg-black"></div>
+            <div class="fg color white" id="fg-white"></div>
+            <div class="fg color red" id="fg-red"></div>
+          </div>
+          <div class="colors background">
+            <label for="bg">BG</label>
+            <div class="bg color black" id="bg-black"></div>
+            <div class="bg color white selected" id="bg-white"></div>
+            <div class="bg color red" id="bg-red"></div>
+          </div>
+        </div>
+        <div class="slidercont">
           <label aria-hidden="true">S</label>
           <input
             type="range"

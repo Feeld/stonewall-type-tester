@@ -12,17 +12,18 @@
       }
 
       .wrapper {
-        height: 100vh;
+        height: 100%;
         display: flex;
         flex-direction: column;
       }
 
       html {
-        height: 100vh;
+        overflow: hidden;
+        height: 100%;
       }
 
       body {
-        height: 100vh;
+        height: 100%;
         width: 100%;
         margin: 0;
       }
@@ -33,23 +34,63 @@
 
       .viewer {
         position: absolute;
-        top: 0;
+        top: 100px;
         left: 0;
         width : 200px;
-        display: none;
       }
 
       .viewer2 {
         position: absolute;
-        top: 0;
+        top: 100px;
         right: 0;
         width : 200px;
+      }
+
+      .viewer, .viewer2 {
         display: none;
       }
 
       .viewer canvas, .viewer2 canvas {
         width: 100%;
         border: 1px solid pink;
+      }
+
+      .black {
+        background-color: #111913;
+      }
+
+      .white {
+        background-color: #FFF;
+        border: 1px solid #DDD;
+      }
+
+      .red {
+        background-color: #FF401D;
+      }
+
+      .colorPicker {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+      }
+
+      .colors {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .color {
+        width: 24px;
+        height: 24px;
+        border-radius: 12px;
+        margin: 3px;
+        cursor: pointer;
+      }
+
+      .color.selected {
+        box-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
       }
 
       .container {
@@ -70,18 +111,24 @@
         display: flex;
         height: 64px;
         width: 100%;
-        text-align: center;
-        justify-content: space-evenly;
-        flex-direction: column;
-        margin-bottom: 10px;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: row;
       }
+
 
 			.controls label {
         display: inline-block;
       }
 
+      .slidercont {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+      }
+
       #font-input {
-      	color: #000;
         font-family: "Stonewall";
         text-indent: 4px;
         text-align: center;
@@ -100,7 +147,7 @@
 
       input[type=range] {
         -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
-        width: 200px; /* Specific width is required for Firefox. */
+        width: 180px; /* Specific width is required for Firefox. */
         background: transparent; /* Otherwise white in Chrome */
       }
 
@@ -137,12 +184,12 @@
       input[type=range]::-webkit-slider-thumb {
         -webkit-appearance: none;
         border: none;
-        height: 12px;
-        width: 12px;
-        border-radius: 6px;
+        height: 14px;
+        width: 14px;
+        border-radius: 7px;
         background: #000000;
         cursor: pointer;
-        margin-top: -5px;
+        margin-top: -6px;
       }
 
       /* All the same stuff for Firefox */
@@ -168,22 +215,19 @@
 
       input[type=range]::-webkit-slider-runnable-track {
         -webkit-appearance: none;
-        margin-top: -14px;
-        width: 200px;
+        width: 180px;
         background: #000;
         height: 2px;
       }
 
       input[type=range]::-moz-range-track {
-       margin-top: -14px;
-        width: 200px;
+        width: 180px;
         background: #000;
         height: 2px;
       }
 
       input[type=range]::-ms-track {
-       margin-top: -14px;
-        width: 200px;
+        width: 180px;
         background: #000;
         height: 2px;
       }
@@ -197,3 +241,36 @@
           background-color: transparent;
           cursor: pointer;
       }
+
+@media (max-width: 480px) {
+      input[type=range]::-webkit-slider-runnable-track {
+        -webkit-appearance: none;
+        width: 100px;
+        background: #000;
+        height: 2px;
+      }
+
+      input[type=range]::-moz-range-track {
+        width: 100px;
+        background: #000;
+        height: 2px;
+      }
+
+      input[type=range]::-ms-track {
+        width: 100px;
+        background: #000;
+        height: 2px;
+      }
+
+      input[type=range] {
+        width: 100px; /* Specific width is required for Firefox. */
+      }
+
+      .colorPicker {
+        flex: 2;
+      }
+
+      .slidercont {
+        flex: 1;
+      }
+};

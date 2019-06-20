@@ -57,9 +57,7 @@
     const desiredFontSize = slider.value * 0.85 | 0;
     ctx.font = `${desiredFontSize}px Stonewall`
 
-    const ps = [];
-
-    textInput.querySelectorAll('p').forEach(p => ps.push(p.innerText))
+    const ps = textInput.innerText.split('\n')
 
     const lines = ps.reduce((ls, p) => {
       return ls.concat(getLines(ctx, p, canvas.width))

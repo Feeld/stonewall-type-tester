@@ -18,39 +18,33 @@
     <div class="wrapper">
       <div class="controls top">
         <div class="colorPicker">
-          <fieldset>
-              <div class="colors foreground">
-                <legend>FG</legend>
-                <button class="fg color black selected" aria-pressed="true" aria-label="Black foreground" id="fg-black"></button>
-                <button class="fg color white" aria-pressed="false" aria-label="White foreground" id="fg-white"></button>
-                <button class="fg color red" aria-pressed="false" aria-label="Red foreground" id="fg-red"></button>
-            </div>
-          </fieldset>
-          <fieldset>
-              <div class="colors background">
-                <legend>BG</legend>
-                <button class="bg color black" aria-pressed="false" aria-label="Black background" id="bg-black"></button>
-                <button class="bg color white selected" aria-pressed="true" aria-label="White background" id="bg-white"></button>
-                <button class="bg color red" aria-pressed="false" aria-label="Red background" id="bg-red"></button>
-            </div>
-          </fieldset>
+          <div class="colors foreground">
+            <label for="fg">FG</label>
+            <div class="fg color black selected" id="fg-black"></div>
+            <div class="fg color white" id="fg-white"></div>
+            <div class="fg color red" id="fg-red"></div>
+          </div>
+          <div class="colors background">
+            <label for="bg">BG</label>
+            <div class="bg color black" id="bg-black"></div>
+            <div class="bg color white selected" id="bg-white"></div>
+            <div class="bg color red" id="bg-red"></div>
+          </div>
         </div>
         <div class="slidercont">
-          <label aria-hidden="true">S</label>
+          <label for="font-size">S</label>
           <input
             type="range"
-            aria-label="Font size"
             id="font-size-slider"
             name="font-size"
             min="50"
             max="330"
             />
-          <label aria-hidden="true">L</label>
+          <label for="font-size">L</label>
         </div>
       </div>
 
       <div
-        aria-label="Type here to test"
         class="container"
         id="font-input"
         spellcheck="false"
@@ -59,7 +53,7 @@
         ><p>type here to test</p></div>
       <div class="controls bottom">
         <div>
-          <button id="download-link" download="FreeToBe.png">Download as image</button>
+          <a id="download-link" download="FreeToBe.png">Download as image</a>
         </div>
       </div>
     </div>

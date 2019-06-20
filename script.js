@@ -54,14 +54,8 @@
     canvas.height = textInput.offsetHeight;
     const contextLink = this;
     const ctx = canvas.getContext('2d');
-    const desiredFontSize = slider.value * 0.85;
-    ctx.fillStyle = bgColor;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = fgColor;
+    const desiredFontSize = slider.value * 0.85 | 0;
     ctx.font = `${desiredFontSize}px Stonewall`
-    ctx.textBaseline = 'bottom'
-    ctx.textAlign = 'center'
 
     const ps = [];
 
@@ -70,19 +64,32 @@
     const lines = ps.reduce((ls, p) => {
       return ls.concat(getLines(ctx, p, canvas.width))
     }, []);
-    debugger;
     let step = 16;
     let fontSize = desiredFontSize;
+    const estimatedHeight = step + fontSize * lines.length;
+
+    canvas.width = textInput.offsetWidth;
+    canvas.height = Math.max(estimatedHeight, canvas.height);
+
+    ctx.font = `${fontSize}px Stonewall`;
+    ctx.textBaseline = 'bottom'
+    ctx.textAlign = 'center'
+    ctx.fillStyle = bgColor;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = fgColor;
+
+
     for (const line of lines) {
       let { width } = ctx.measureText(line);
-
       while (width > canvas.width ) {
-        fontSize *= 0.99;
+        fontSize *= 0.95;
         ctx.font = `${fontSize}px Stonewall`;
         width = ctx.measureText(line).width;
       }
 
       step += fontSize * 0.9;
+      ctx.font = `${fontSize}px Stonewall`;
       ctx.fillText(line, canvas.width/2, step);
       ctx.font = `${desiredFontSize}px Stonewall`
     }
@@ -96,8 +103,6 @@
     const canvasHeight = draw();
     hiddenCanvas.height = Math.max(canvasHeight, canvas.height);
     hiddenCanvas.width = canvas.width;
-
-    console.log('exporting: ', canvasHeight, canvas.width)
 
     var ctx = hiddenCanvas.getContext('2d');
     ctx.fillStyle = bgColor;

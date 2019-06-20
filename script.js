@@ -7,6 +7,7 @@
   const downloadLink = document.querySelector('#download-link')
   const canvasContainer = document.querySelector('#canvasContainer');
   const viewerContainer = document.querySelector('.viewer');
+  const viewerContainer2 = document.querySelector('.viewer2');
 
   slider.addEventListener('input', () => {
     textInput.style['font-size'] = slider.value + 'px'
@@ -32,7 +33,7 @@
   }
 
   const canvas = document.createElement('canvas');
-  //canvasContainer.appendChild(canvas);
+  viewerContainer2.appendChild(canvas);
 
   function draw() {
     const textInputStyle = window.getComputedStyle(textInput)
@@ -77,9 +78,10 @@
   function download() {
 
     const canvasHeight = draw();
-    hiddenCanvas.height = canvasHeight;
+    hiddenCanvas.height = Math.min(canvasHeight, canvas.height);
     hiddenCanvas.width = canvas.width;
 
+    console.log(canvasHeight, canvas.width)
 
 
     var ctx = hiddenCanvas.getContext('2d');
@@ -89,12 +91,6 @@
       canvas,
       0,
       0,
-      canvas.width,
-      canvasHeight,
-      0,
-      0,
-      canvas.width,
-      canvasHeight
     );
 
     var dataURL = hiddenCanvas.toDataURL();

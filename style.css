@@ -2,19 +2,55 @@
           font-family: Stonewall;
           src: url("https://firebasestorage.googleapis.com/v0/b/feeld-comms/o/stonewallFont%2FStonewall-50-medium.otf?alt=media&token=641a2c90-7877-4a29-8c39-37c47c242669") format("opentype");
       }
-  
+
+      .top {
+        align-self: flex-start;
+      }
+
+      .bottom {
+        align-self: flex-end;
+      }
+
+      .wrapper {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      html {
+        height: 100vh;
+      }
+
+      body {
+        height: 100vh;
+        width: 100%;
+        margin: 0;
+      }
+
   		.container, .controls, #download-link {
         font-family: "Stonewall";
       }
-  
+
       .container {
         width: 100%;
+        flex: 1;
         text-align: center;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+      }
+
+      .container p {
+        margin: 0;
       }
 
       .controls {
+        display: flex;
+        height: 64px;
         width: 100%;
         text-align: center;
+        justify-content: space-evenly;
+        flex-direction: column;
         margin-bottom: 10px;
       }
 
@@ -30,17 +66,13 @@
         padding-left: 0;
         padding-right: 0;
         border-width: 0;
-        display:inline-block;
-        vertical-align:middle;
         -webkit-font-smoothing: subpixel-antialiased;
         -moz-osx-font-smoothing: auto;
         font-size: 140px;
-        line-height: 1.00em; 
-        padding-top: 0.0000em; 
+        line-height: 1.00em;
+        padding-top: 0.0000em;
         padding-bottom: 0.0000em;
         width: 100%;
-        height: 100%;
-        overflow-y: show;
       }
 
       input[type=range] {
@@ -62,7 +94,7 @@
         cursor: pointer;
 
         /* Hides the slider so custom styles can be added */
-        background: transparent; 
+        background: transparent;
         border-color: transparent;
         color: transparent;
       }

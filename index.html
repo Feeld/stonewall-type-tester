@@ -12,29 +12,34 @@
     <!-- import the webpage's javascript file -->
     <script src="./script.js" defer></script>
   </head>
-  <body>
-     <div class="controls">
-      <label for="font-size">S</label>
-      <input
-        type="range"
-        id="font-size-slider"
-        name="font-size"
-        min="50"
-        max="330"
-      >
-      <label for="font-size">L</label>
-    </div>
+  <body spellcheck="false">
+    <div class="wrapper">
+      <div class="controls top">
+        <div>
+          <label for="font-size">S</label>
+          <input
+            type="range"
+            id="font-size-slider"
+            name="font-size"
+            min="50"
+            max="330"
+            />
+          <label for="font-size">L</label>
+        </div>
+      </div>
 
-    <div class="container">
       <div
+        class="container"
         id="font-input"
         spellcheck="false"
         wrap="soft"
         contenteditable="true"
-      >type here to test</div>
-    </div>
-    <div class="controls">
-      <a id="download-link" download="FreeToBe.png">Download as image</a>
+        ><p>type here to test</p></div>
+      <div class="controls bottom">
+        <div>
+          <a id="download-link" download="FreeToBe.png">Download as image</a>
+        </div>
+      </div>
     </div>
   </body>
 </html>

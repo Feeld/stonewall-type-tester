@@ -139,9 +139,9 @@
     const selectedColor = colorList.find(c => e.target.classList.contains(c));
 
     if (type === 'bg') {
-      bgColor = selectedColor;
+      bgColor = colors[selectedColor];
     } else {
-      fgColor = selectedColor;
+      fgColor = colors[selectedColor];
     }
 
     setColors();

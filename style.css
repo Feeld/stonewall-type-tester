@@ -90,6 +90,17 @@
       input[type=range]:focus {
         outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
       }
+      
+            /* make the thumb grey to show when the slider has keyboard focus */
+            input[type=range]:focus::-webkit-slider-thumb {
+                background: #888888;
+            }
+            input[type=range]:focus::-moz-range-thumb {
+                background: #888888;
+            }
+            input[type=range]:focus::-ms-thumb {
+                background: #888888;
+            }
 
       input[type=range]::-ms-track {
         width: 100%;

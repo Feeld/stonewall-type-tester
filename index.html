@@ -16,19 +16,21 @@
     <div class="wrapper">
       <div class="controls top">
         <div>
-          <label for="font-size">S</label>
+          <label aria-hidden="true">S</label>
           <input
             type="range"
+            aria-label="Font size"
             id="font-size-slider"
             name="font-size"
             min="50"
             max="330"
             />
-          <label for="font-size">L</label>
+          <label aria-hidden="true">L</label>
         </div>
       </div>
 
       <div
+        aria-label="Type here to test"
         class="container"
         id="font-input"
         spellcheck="false"

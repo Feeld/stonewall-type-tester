@@ -1,0 +1,123 @@
+@font-face {
+          font-family: Stonewall;
+          src: url("https://firebasestorage.googleapis.com/v0/b/feeld-comms/o/stonewallFont%2FStonewall-50-medium.otf?alt=media&token=641a2c90-7877-4a29-8c39-37c47c242669") format("opentype");
+      }
+  
+  		.container, .controls, #download-link {
+        font-family: "Stonewall";
+      }
+  
+      .container {
+        width: 100%;
+        text-align: center;
+      }
+
+      .controls {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+			.controls label {
+        display: inline-block;
+      }
+
+      #font-input {
+      	color: #000;
+        font-family: "Stonewall";
+        text-indent: 4px;
+        text-align: center;
+        padding-left: 0;
+        padding-right: 0;
+        border-width: 0;
+        display:inline-block;
+        vertical-align:middle;
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-osx-font-smoothing: auto;
+        font-size: 140px;
+        line-height: 1.00em; 
+        padding-top: 0.0000em; 
+        padding-bottom: 0.0000em;
+        width: 100%;
+        height: 100%;
+        overflow-y: show;
+      }
+
+      input[type=range] {
+        -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+        width: 200px; /* Specific width is required for Firefox. */
+        background: transparent; /* Otherwise white in Chrome */
+      }
+
+      input[type=range]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+      }
+
+      input[type=range]:focus {
+        outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+      }
+
+      input[type=range]::-ms-track {
+        width: 100%;
+        cursor: pointer;
+
+        /* Hides the slider so custom styles can be added */
+        background: transparent; 
+        border-color: transparent;
+        color: transparent;
+      }
+
+      /* Special styling for WebKit/Blink */
+      input[type=range]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        border: none;
+        height: 12px;
+        width: 12px;
+        border-radius: 6px;
+        background: #000000;
+        cursor: pointer;
+        margin-top: -5px;
+      }
+
+      /* All the same stuff for Firefox */
+      input[type=range]::-moz-range-thumb {
+        border: none;
+        height: 12px;
+        width: 12px;
+        border-radius: 6px;
+        background: #000000;
+        cursor: pointer;
+      }
+
+      /* All the same stuff for IE */
+      input[type=range]::-ms-thumb {
+        border: none;
+        height: 12px;
+        width: 12px;
+        border-radius: 6px;
+        background: #000000;
+        cursor: pointer;
+      }
+
+
+      input[type=range]::-webkit-slider-runnable-track {
+        -webkit-appearance: none;
+        margin-top: -14px;
+        width: 200px;
+        background: #000;
+        height: 2px;
+      }
+
+      input[type=range]::-moz-range-track {
+       margin-top: -14px;
+        width: 200px;
+        background: #000;
+        height: 2px;
+      }
+
+      input[type=range]::-ms-track {
+       margin-top: -14px;
+        width: 200px;
+        background: #000;
+        height: 2px;
+      }

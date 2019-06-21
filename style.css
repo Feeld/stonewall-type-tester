@@ -31,6 +31,12 @@
   		.container, .controls, #download-link {
         font-family: "Stonewall";
       }
+      #download-link {
+        border-radius: 24px;
+        border: 1px solid black;
+        padding: 12px;
+        outline: none;
+      }
 
       .viewer {
         position: absolute;
@@ -114,18 +120,18 @@
 
       .controls {
         display: flex;
-        height: 64px;
+        height: 120px;
         width: 100%;
         align-items: center;
-        justify-content: space-around;
-        flex-direction: row;
+        justify-content: space-between;
+        flex-direction: column;
       }
 
 
       .controls label, .controls legend {
         display: inline-block;
       }
-      
+
       legend {
         padding: 0;
         display: table;
@@ -159,7 +165,7 @@
         overflow: hidden;
         -webkit-font-smoothing: subpixel-antialiased;
         -moz-osx-font-smoothing: auto;
-        font-size: 140px;
+        font-size: 65px;
         line-height: 1.00em;
         padding-top: 0.0000em;
         padding-bottom: 0.0000em;
@@ -179,7 +185,7 @@
       input[type=range]:focus {
         outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
       }
-      
+
             /* make the thumb grey to show when the slider has keyboard focus */
             input[type=range]:focus::-webkit-slider-thumb {
                 background: #888888;
@@ -252,7 +258,7 @@
         background: #000;
         height: 2px;
       }
-      
+
       button {
           /* reset button to look like a link */
           padding: 0;
@@ -293,5 +299,6 @@
 
       .slidercont {
         flex: 1;
+        padd
       }
 };

@@ -6,6 +6,7 @@
   const colorPicker = document.querySelector('.colorPicker');
   const textInput = document.querySelector('#font-input');
   const downloadLink = document.querySelector('#download-link')
+  const downloadLinkContainer = document.getElementById("download-container");
   const canvasContainer = document.querySelector('#canvasContainer');
   const viewerContainer = document.querySelector('.viewer');
   const viewerContainer2 = document.querySelector('.viewer2');
@@ -145,15 +146,53 @@
       stampHeight,
     )
 
+      /*
 
     let a = document.createElement("a");
     a.href = hiddenCanvas.toDataURL("image/png");
     a.setAttribute("download", "FreeToBe.png");
     document.body.appendChild(a);
     a.click();
+    */
+    uploadToFirebaseAndGetLink(hiddenCanvas);
   };
 
 
+  function uploadToFirebaseAndGetLink(canvas) {
+    canvas.toBlob(function(blob) {
+      downloadLinkContainer.innerHTML = "Loading...";
+      const imageRef = firebase.storage().ref()
+        .child('images/id-' + new Date().toISOString() + '.png');
+
+      const uploadTask = imageRef.put(blob);
+
+      uploadTask.on('state_changed', function(snapshot){
+        // Observe state change events such as progress, pause, and resume
+        // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+        var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        downloadLinkContainer.innerHTML = (Math.floor(progress) + '% done');
+      }, function(error) {
+        // Handle unsuccessful uploads
+      }, function() {
+        // Handle successful uploads on complete
+        // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+        uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+          console.log('File available at', downloadURL);
+
+          const downloadLink = document.createElement('a');
+          downloadLink.href = downloadURL;
+          downloadLink.target = "_blank";
+          downloadLink.appendChild(document.createTextNode("Download!"));
+          downloadLinkContainer.innerHTML = null;
+          downloadLinkContainer.appendChild(downloadLink);
+
+        });
+
+      });
+
+    });
+
+  }
   function handleChangeColor(e) {
     e.preventDefault();
     if (!e.target.classList.contains('color')) {
@@ -216,6 +255,16 @@
 
 
   function startup() {
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyB9z5u5Zqz6dAmMdcpYiR-cboFQd1YBHnM",
+      projectId: "fld-shared",
+      storageBucket: "fld-visual-identity",
+      appId: "1:922774394440:web:fe69e18146af5f50"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+
     loadImages();
     console.log('starting up')
     downloadLink.addEventListener('click', download);

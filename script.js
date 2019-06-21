@@ -68,7 +68,7 @@
     let fontSize = desiredFontSize;
     const estimatedHeight = step + fontSize * lines.length;
 
-    canvas.width = textInput.offsetWidth;
+    canvas.width = textInput.offsetWidth * 2;
     canvas.height = Math.max(estimatedHeight, canvas.height);
 
     ctx.font = `${fontSize}px Stonewall`;

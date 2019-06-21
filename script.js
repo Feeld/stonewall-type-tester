@@ -120,10 +120,12 @@
     const stamp = stamps[selectedFgColor];
     const logo = logos[selectedFgColor];
 
-    const logoWidth = hiddenCanvas.width * 0.05;
-    const logoMarginWidth = hiddenCanvas.width * 0.03;
-    const marginWidth = hiddenCanvas.width * 0.05;
-    const stampWidth = hiddenCanvas.width * 0.1;
+    const shortestSide = Math.min(hiddenCanvas.width, hiddenCanvas.height);
+
+    const logoWidth = shortestSide * 0.05;
+    const logoMarginWidth = shortestSide * 0.03;
+    const marginWidth = shortestSide * 0.05;
+    const stampWidth = shortestSide * 0.1;
     const stampHeight = stampWidth *  (stamp.height / stamp.width);
 
     ctx.drawImage(

@@ -147,7 +147,7 @@
 
 
     let a = document.createElement("a");
-    a.href = hiddenCanvas.toDataURL("image/png");
+    a.href = hiddenCanvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
     a.setAttribute("download", "FreeToBe.png");
     document.body.appendChild(a);
     a.click();

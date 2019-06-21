@@ -143,9 +143,12 @@
       stampHeight,
     )
 
-    var dataURL = hiddenCanvas.toDataURL();
-    this.href = dataURL;
 
+    let a = document.createElement("a");
+    a.href = hiddenCanvas.toDataURL();
+    a.setAttribute("download", "FreeToBe.png");
+    document.body.appendChild(a);
+    a.click();
   };
 
 

@@ -52,11 +52,11 @@
 
   function draw() {
     const textInputStyle = window.getComputedStyle(textInput)
-    canvas.width = textInput.offsetWidth;
-    canvas.height = textInput.offsetHeight;
+    canvas.width = textInput.offsetWidth * 2;
+    canvas.height = textInput.offsetHeight * 2;
     const contextLink = this;
     const ctx = canvas.getContext('2d');
-    const desiredFontSize = slider.value * 0.85 | 0;
+    const desiredFontSize = slider.value * 1.85 | 0;
     ctx.font = `${desiredFontSize}px Stonewall`
 
     const ps = textInput.innerText.split('\n')

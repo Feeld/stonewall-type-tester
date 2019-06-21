@@ -182,7 +182,7 @@
           const downloadLink = document.createElement('a');
           downloadLink.href = downloadURL;
           downloadLink.target = "_blank";
-          downloadLink.appendChild(document.createTextNode("Download!"));
+          downloadLink.appendChild(document.createTextNode("Download Image"));
           downloadLinkContainer.innerHTML = null;
           downloadLinkContainer.appendChild(downloadLink);
 

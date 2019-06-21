@@ -47,6 +47,8 @@
   let bgColor = colors.white;
   let fgColor = colors.black;
 
+  let selectedBgColor = 'white';
+  let selectedFgColor = 'black';
 
   function draw() {
     const textInputStyle = window.getComputedStyle(textInput)
@@ -115,6 +117,30 @@
       startY,
     );
 
+    const stamp = stamps[selectedFgColor];
+    const logo = logos[selectedFgColor];
+
+    const marginWidth = hiddenCanvas.width * 0.05;
+    const stampWidth = hiddenCanvas.width * 0.1;
+    const stampHeight = stampWidth *  (stamp.height / stamp.width);
+
+    ctx.drawImage(
+      logo,
+      marginWidth,
+      marginWidth,
+      stampWidth,
+      stampWidth,
+    )
+
+
+    ctx.drawImage(
+      stamp,
+      hiddenCanvas.width - (stampWidth + marginWidth),
+      hiddenCanvas.height - (stampHeight + marginWidth),
+      stampWidth,
+      stampHeight,
+    )
+
     var dataURL = hiddenCanvas.toDataURL();
     this.href = dataURL;
 
@@ -142,8 +168,10 @@
     const selectedColor = colorList.find(c => e.target.classList.contains(c));
 
     if (type === 'bg') {
+      selectedBgColor = selectedColor;
       bgColor = colors[selectedColor];
     } else {
+      selectedFgColor = selectedColor;
       fgColor = colors[selectedColor];
     }
 
@@ -157,8 +185,27 @@
     textInput.style['background-color'] = bgColor;
   }
 
+  const logos = {};
+  const stamps = {};
+
+  function loadImages() {
+    Object.keys(colors).map(c => {
+
+      const logoImg = document.createElement('img');
+      logoImg.src = `./assets/logo-${c}.svg`;
+      logos[c] = logoImg
+
+      const stampImg = document.createElement('img');
+      stampImg.src = `./assets/stamp-${c}.svg`;
+      stamps[c] = stampImg
+
+    })
+
+  }
+
 
   function startup() {
+    loadImages();
     console.log('starting up')
     downloadLink.addEventListener('click', download);
     colorPicker.addEventListener('click', handleChangeColor);

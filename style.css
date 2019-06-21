@@ -89,6 +89,11 @@
         cursor: pointer;
       }
 
+      .color:focus {
+          outline: 0;
+          box-shadow: -1px 0 #888888, 0 1px #888888, 1px 0 #888888, 0 -1px #888888;
+      }
+
       .color.selected {
         box-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
       }
@@ -117,8 +122,24 @@
       }
 
 
-			.controls label {
+      .controls label, .controls legend {
         display: inline-block;
+      }
+      
+      legend {
+        padding: 0;
+        display: table;
+      }
+
+      fieldset {
+        border: 0;
+        padding: 0.01em 0 0 0;
+        margin: 0;
+        min-width: 0;
+      }
+
+      body:not(:-moz-handler-blocked) fieldset {
+        display: table-cell;
       }
 
       .slidercont {
@@ -158,6 +179,17 @@
       input[type=range]:focus {
         outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
       }
+      
+            /* make the thumb grey to show when the slider has keyboard focus */
+            input[type=range]:focus::-webkit-slider-thumb {
+                background: #888888;
+            }
+            input[type=range]:focus::-moz-range-thumb {
+                background: #888888;
+            }
+            input[type=range]:focus::-ms-thumb {
+                background: #888888;
+            }
 
       input[type=range]::-ms-track {
         width: 100%;
@@ -220,7 +252,16 @@
         background: #000;
         height: 2px;
       }
-
+      
+      button {
+          /* reset button to look like a link */
+          padding: 0;
+          border: none;
+          font: inherit;
+          color: inherit;
+          background-color: transparent;
+          cursor: pointer;
+      }
 
 @media (max-width: 480px) {
       input[type=range]::-webkit-slider-runnable-track {

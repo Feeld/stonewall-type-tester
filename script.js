@@ -162,8 +162,12 @@
     const type = e.target.classList.contains('fg') ? 'fg' : 'bg';
 
     colorPicker.querySelector(`.${type}.color.selected`)
+      .setAttribute('aria-pressed', 'false');
+    colorPicker.querySelector(`.${type}.color.selected`)
       .classList.remove('selected');
+
     e.target.classList.add('selected');
+    e.target.setAttribute('aria-pressed', 'true');
 
     const colorList = Object.keys(colors);
 
@@ -217,4 +221,3 @@
   window.onload = startup;
 
 })()
-

@@ -47,7 +47,7 @@
       }
 
       .viewer, .viewer2 {
-        display: block;
+        display: none;
       }
 
       .viewer canvas, .viewer2 canvas {
